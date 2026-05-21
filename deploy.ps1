@@ -31,8 +31,8 @@ npm run build
 if ($LASTEXITCODE -eq 0) {
     Write-Host "`n✅ 建立成功！" -ForegroundColor Green
     Write-Host "`n🎉 部署完成！GitHub Actions 將自動部署到 GitHub Pages" -ForegroundColor Green
-    Write-Host "📍 請前往查看: https://huguestt.github.io/projectz/" -ForegroundColor Cyan
-    Write-Host "📊 查看部署狀態: https://github.com/HughesTT/projectz/actions" -ForegroundColor Cyan
+    Write-Host "📍 請前往查看: https://huguestt.github.io/nuxt-project/" -ForegroundColor Cyan
+    Write-Host "📊 查看部署狀態: https://github.com/HughesTT/nuxt-project/actions" -ForegroundColor Cyan
 } else {
     Write-Host "`n❌ 建立失敗！請檢查錯誤訊息" -ForegroundColor Red
     exit 1

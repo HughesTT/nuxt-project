@@ -1,0 +1,3 @@
+# 此檔案告訴 GitHub Pages 不要使用 Jekyll 處理
+# Nuxt 生成的靜態檔案可能包含下底線開頭的資料夾（如 _nuxt）
+# Jekyll 會忽略這些檔案，導致網站無法正常運作
