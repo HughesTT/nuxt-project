@@ -126,20 +126,30 @@ The deployment was rejected or didn't satisfy other protection rules.
 2. 代碼中使用 `useRuntimeConfig()` 而非 `import.meta.env`
 3. 重新執行 `npm run generate` 並推送
 
-### Q3: 頁面顯示 404
+### ⚠️ Q3: 圖片無法顯示（HeaderSlider、ProductFeatures 等）
+**原因：** 部署到 GitHub Pages 子路徑時，絕對路徑 `/img/xxx.jpg` 會解析為 `https://username.github.io/img/xxx.jpg` 而非 `https://username.github.io/nuxt-project/img/xxx.jpg`
+
+**解決方法：** 已修復以下組件使用 `useRuntimeConfig()` 動態生成圖片路徑：
+- ✅ `components/HeaderSlider.vue`
+- ✅ `components/ProductFeatures.vue`
+- ✅ `error.vue`
+
+所有組件現在都使用 `getImagePath()` 函數來處理 baseURL，確保圖片在任何部署環境下都能正確載入。
+
+### Q4: 頁面顯示 404
 **解決方法：** 檢查 `baseURL` 設定是否正確
 
-### Q4: CSS/JS 檔案載入失敗
+### Q5: CSS/JS 檔案載入失敗
 **解決方法：** 
 - 確認 `baseURL` 包含正確的 repo 名稱
 - 確認 `.nojekyll` 檔案存在於 `public/` 資料夾
 
-### Q5: Actions 部署失敗（權限問題）
+### Q6: Actions 部署失敗（權限問題）
 **解決方法：**
 - 確認 GitHub Pages 設定為 "GitHub Actions"
 - 確認有足夠的權限（Settings > Actions > General > Workflow permissions 設為 Read and write）
 
-### Q6: 首頁可以但其他頁面 404
+### Q7: 首頁可以但其他頁面 404
 **解決方法：** SPA 模式在 GitHub Pages 需要額外處理，可以：
 1. 在 `public/` 建立 `404.html` 重定向到 `index.html`
 2. 或改用 `ssr: true` 並設定正確的 `target`

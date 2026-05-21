@@ -12,7 +12,7 @@
         <!-- 藍芽功能 -->
         <div class="feature-card">
           <div class="feature-image">
-            <img src="/img/bluetooth-feature.jpg" alt="藍芽無線連接" loading="lazy" />
+            <img :src="getImagePath('/img/bluetooth-feature.jpg')" alt="藍芽無線連接" loading="lazy" />
             <div class="image-overlay">
               <div class="overlay-icon">
                 <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none"
@@ -57,7 +57,7 @@
         <!-- 降噪功能 -->
         <div class="feature-card">
           <div class="feature-image">
-            <img src="/img/noise-cancelling.jpg" alt="主動降噪技術" loading="lazy" />
+            <img :src="getImagePath('/img/noise-cancelling.jpg')" alt="主動降噪技術" loading="lazy" />
             <div class="image-overlay">
               <div class="overlay-icon">
                 <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none"
@@ -104,7 +104,7 @@
         <!-- 電競功能 -->
         <div class="feature-card">
           <div class="feature-image">
-            <img src="/img/gaming-mode.jpg" alt="電競遊戲模式" loading="lazy" />
+            <img :src="getImagePath('/img/gaming-mode.jpg')" alt="電競遊戲模式" loading="lazy" />
             <div class="image-overlay">
               <div class="overlay-icon">
                 <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none"
@@ -154,7 +154,17 @@
 </template>
 
 <script setup>
-// 無需額外邏輯，純展示型元件
+// 獲取 Nuxt 配置
+const config = useRuntimeConfig()
+const baseURL = config.app.baseURL
+
+// 生成完整圖片路徑的輔助函數
+const getImagePath = (path) => {
+  // 如果 baseURL 是 '/'，直接返回路徑
+  // 否則，移除路徑開頭的 '/' 並加上 baseURL
+  if (baseURL === '/') return path
+  return `${baseURL}${path.startsWith('/') ? path.slice(1) : path}`
+}
 </script>
 
 <style lang="scss" scoped>

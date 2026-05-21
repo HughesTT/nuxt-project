@@ -6,7 +6,7 @@
       <div class="error-content">
         <!-- 404 圖片 -->
         <div class="error-image">
-          <img src="/img/404.png" alt="404 Page Not Found" />
+          <img :src="getImagePath('/img/404.png')" alt="404 Page Not Found" />
         </div>
         <p class="error-description">
           抱歉，您要尋找的頁面可能已被移除、重新命名或暫時無法使用。
@@ -82,6 +82,18 @@
 <script setup>
 import { useRouter } from 'vue-router'
 const router = useRouter()
+
+// 獲取 Nuxt 配置
+const config = useRuntimeConfig()
+const baseURL = config.app.baseURL
+
+// 生成完整圖片路徑的輔助函數
+const getImagePath = (path) => {
+  // 如果 baseURL 是 '/'，直接返回路徑
+  // 否則，移除路徑開頭的 '/' 並加上 baseURL
+  if (baseURL === '/') return path
+  return `${baseURL}${path.startsWith('/') ? path.slice(1) : path}`
+}
 
 // Nuxt 3 錯誤頁面會接收 error prop
 const props = defineProps({

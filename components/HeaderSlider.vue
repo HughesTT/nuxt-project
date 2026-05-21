@@ -38,29 +38,41 @@
 </template>
 
 <script setup>
+// 獲取 Nuxt 配置
+const config = useRuntimeConfig()
+const baseURL = config.app.baseURL
+
+// 生成完整圖片路徑的輔助函數
+const getImagePath = (path) => {
+  // 如果 baseURL 是 '/'，直接返回路徑
+  // 否則，移除路徑開頭的 '/' 並加上 baseURL
+  if (baseURL === '/') return path
+  return `${baseURL}${path.startsWith('/') ? path.slice(1) : path}`
+}
+
 // 輪播圖片資料
-const slides = [
+const slides = computed(() => [
   {
-    desktop: '/img/headerbanner01.e030209c.jpg',
-    mobile: '/img/mobibanner-1.f88d0c1b.jpg',
+    desktop: getImagePath('/img/headerbanner01.e030209c.jpg'),
+    mobile: getImagePath('/img/mobibanner-1.f88d0c1b.jpg'),
     alt: '輪播圖片 1'
   },
   {
-    desktop: '/img/headerbanner02.79562a15.jpg',
-    mobile: '/img/mobibanner-2.27962580.jpg',
+    desktop: getImagePath('/img/headerbanner02.79562a15.jpg'),
+    mobile: getImagePath('/img/mobibanner-2.27962580.jpg'),
     alt: '輪播圖片 2'
   },
   {
-    desktop: '/img/headerbanner03.a7c8bb9a.jpg',
-    mobile: '/img/mobibanner-3.21b3a764.jpg',
+    desktop: getImagePath('/img/headerbanner03.a7c8bb9a.jpg'),
+    mobile: getImagePath('/img/mobibanner-3.21b3a764.jpg'),
     alt: '輪播圖片 3'
   },
   {
-    desktop: '/img/headerbanner04.c0e2c68a.jpg',
-    mobile: '/img/mobibanner-4.42a9ce71.jpg',
+    desktop: getImagePath('/img/headerbanner04.c0e2c68a.jpg'),
+    mobile: getImagePath('/img/mobibanner-4.42a9ce71.jpg'),
     alt: '輪播圖片 4'
   }
-]
+])
 
 // 當前顯示的圖片索引
 const currentIndex = ref(0)
@@ -76,13 +88,13 @@ const goToSlide = (index) => {
 
 // 下一張
 const nextSlide = () => {
-  currentIndex.value = (currentIndex.value + 1) % slides.length
+  currentIndex.value = (currentIndex.value + 1) % slides.value.length
   resetAutoPlay()
 }
 
 // 上一張
 const prevSlide = () => {
-  currentIndex.value = (currentIndex.value - 1 + slides.length) % slides.length
+  currentIndex.value = (currentIndex.value - 1 + slides.value.length) % slides.value.length
   resetAutoPlay()
 }
 
