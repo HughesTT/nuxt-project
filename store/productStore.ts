@@ -42,8 +42,9 @@ export const useProductStore = defineStore('productStore', (): ProductStoreState
   // 取得所有產品的函式
   const getAllProducts = async (): Promise<void> => {
     try {
-      const apiBase = import.meta.env.VITE_APP_API
-      const apiPath = import.meta.env.VITE_APP_PATH
+      const config = useRuntimeConfig()
+      const apiBase = config.public.apiBase
+      const apiPath = config.public.apiPath
       
       const api = `${apiBase}api/${apiPath}/products/all`
       

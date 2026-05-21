@@ -4,6 +4,14 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: ['@pinia/nuxt'],
   
+  // 運行時配置（用於環境變數）
+  runtimeConfig: {
+    public: {
+      apiBase: 'https://vue3-course-api.hexschool.io/',
+      apiPath: 'hughesh-api'
+    }
+  },
+  
   // GitHub Pages 部署配置
   ssr: false, // 關閉 SSR，使用 SPA 模式
   
