@@ -47,7 +47,7 @@ export const useCart = () => {
     }
   }
 
-  // 儲存購物車到 localStorage
+  // 儲存購物車到 localStorage，不會回傳
   const saveCart = (): void => {
     // 只在 client 端執行
     if (typeof window === 'undefined') return

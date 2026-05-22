@@ -35,7 +35,7 @@
 ## 🛠️ 技術使用
 
 ### 核心框架
-- **Nuxt 4**
+- **Nuxt 3**
 - **Vue 3**
 - **TypeScript**
 - **Pinia**
