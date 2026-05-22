@@ -536,17 +536,216 @@ useSeoMeta({
     }
   }
 
-  @media (max-width: 480px) {
-    .items-header {
-      flex-direction: column;
-      align-items: flex-start !important;
-      gap: 1rem;
+  @media (max-width: 768px) {
+    padding: 1.5rem 1rem;
+
+    .page-header h1 {
+      font-size: 1.75rem;
     }
+
+    .item-card {
+      grid-template-columns: 90px 1fr !important;
+      gap: 1rem !important;
+      padding: 1.25rem !important;
+
+      .item-image {
+        width: 90px !important;
+        height: 90px !important;
+      }
+
+      .item-info {
+        h3 {
+          font-size: 1rem;
+        }
+
+        .item-category {
+          font-size: 0.85rem;
+        }
+
+        .item-price {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 0.25rem;
+
+          .original-price {
+            font-size: 0.85rem;
+          }
+
+          .current-price {
+            font-size: 1.1rem;
+          }
+        }
+      }
+
+      .item-actions {
+        gap: 0.75rem;
+        flex-wrap: wrap;
+
+        .quantity-controls {
+          order: 1;
+        }
+
+        .item-total {
+          order: 2;
+          font-size: 1rem;
+        }
+
+        .remove-btn {
+          order: 3;
+          padding: 0.5rem 0.75rem;
+          font-size: 0.85rem;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 480px) {
+    padding: 1rem 0.75rem;
 
     .page-header {
       flex-direction: column;
       align-items: flex-start;
       gap: 1rem;
+      margin-bottom: 1.5rem;
+
+      h1 {
+        font-size: 1.5rem;
+      }
+    }
+
+    .items-header {
+      flex-direction: column;
+      align-items: flex-start !important;
+      gap: 0.75rem;
+      padding: 1rem !important;
+
+      h2 {
+        font-size: 1.15rem;
+        font-weight: 600;
+      }
+
+      .clear-btn {
+        width: 100%;
+        padding: 0.65rem;
+        font-size: 0.9rem;
+        font-weight: 500;
+      }
+    }
+
+    .item-card {
+      grid-template-columns: 80px 1fr !important;
+      gap: 0.75rem !important;
+      padding: 1rem !important;
+
+      .item-image {
+        width: 80px !important;
+        height: 80px !important;
+      }
+
+      .item-info {
+        h3 {
+          font-size: 1.05rem;
+          font-weight: 600;
+          margin-bottom: 0.4rem;
+          line-height: 1.3;
+        }
+
+        .item-category {
+          font-size: 0.8rem;
+          margin-bottom: 0.5rem;
+        }
+
+        .item-price {
+          .original-price {
+            font-size: 0.8rem;
+          }
+
+          .current-price {
+            font-size: 1.15rem;
+            font-weight: 700;
+          }
+        }
+      }
+
+      .item-actions {
+        flex-direction: row !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        gap: 0.75rem;
+        padding-top: 0.75rem;
+        border-top: 1px solid #f0f0f0;
+        flex-wrap: wrap;
+
+        .quantity-controls {
+          order: 1;
+          display: flex;
+          align-items: center;
+
+          .qty-btn {
+            width: 34px;
+            height: 34px;
+            font-size: 1.2rem;
+            font-weight: 600;
+          }
+
+          .qty-input {
+            width: 50px;
+            padding: 0.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+          }
+        }
+
+        .item-total {
+          order: 2;
+          font-size: 0.95rem;
+          font-weight: 600;
+          color: #ff4757;
+          white-space: nowrap;
+        }
+
+        .remove-btn {
+          order: 3;
+          width: 100%;
+          justify-content: center;
+          padding: 0.65rem;
+          font-size: 0.9rem;
+          font-weight: 500;
+
+          svg {
+            display: none;
+          }
+        }
+      }
+    }
+
+    .cart-summary {
+      padding: 1.25rem;
+
+      h2 {
+        font-size: 1.25rem;
+        font-weight: 600;
+        margin-bottom: 1.25rem;
+      }
+
+      .summary-row {
+        font-size: 1rem;
+
+        &.total {
+          font-size: 1.3rem;
+          font-weight: 700;
+        }
+      }
+
+      .checkout-btn {
+        padding: 1rem;
+        font-size: 1.05rem;
+        font-weight: 700;
+      }
+
+      .shipping-notice {
+        font-size: 0.85rem;
+      }
     }
   }
 }
