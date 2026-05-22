@@ -3,6 +3,7 @@
   <NuxtPage />
   <Footer />
   <ToastMessage />
+  <BackToTop />
 </template>
 
 <script setup></script>
