@@ -9,6 +9,7 @@
         <div class="info-card">
           <div class="card-header">
             <h2>基本資料</h2>
+            <button class="edit-btn" @click="isEditing = !isEditing">{{ isEditing ? '取消' : '編輯' }}</button>
           </div>
 
           <form @submit.prevent="saveProfile" class="profile-form">

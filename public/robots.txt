@@ -1,2 +1,16 @@
-User-Agent: *
-Disallow:
+# 1. 針對所有的搜尋引擎爬蟲
+User-agent: *
+
+# 2. 禁止爬取的頁面
+Disallow: /
+# Disallow: /member/
+# Disallow: /cart/
+# Disallow: /checkout/
+# Disallow: /admin/
+
+# 3. 允許爬取其他所有地方（特別是商品分類與首頁）
+# Allow: /
+# Allow: /category/
+
+# 4. 告訴爬蟲網站地圖，加速索引
+# Sitemap: https://your-store.com/sitemap.xml
