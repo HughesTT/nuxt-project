@@ -8,6 +8,8 @@ interface CartItem {
   price: number
   quantity: number
   imageUrl?: string
+  category?: string
+  origin_price?: number
 }
 
 // 定義產品介面（用於 addToCart）
@@ -16,6 +18,8 @@ interface Product {
   title: string
   price: number
   imageUrl?: string
+  category?: string
+  origin_price?: number
   [key: string]: any // 允許其他屬性
 }
 
@@ -72,7 +76,9 @@ export const useCart = () => {
         title: product.title,
         price: product.price,
         quantity: quantity,
-        imageUrl: product.imageUrl
+        imageUrl: product.imageUrl,
+        category: product.category,
+        origin_price: product.origin_price
       })
       showToast(`已將 ${product.title} 加入購物車`, 'success')
     }

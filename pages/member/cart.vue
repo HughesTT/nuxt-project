@@ -35,10 +35,10 @@
               <h3>{{ item.title }}</h3>
               <p class="item-category">{{ item.category }}</p>
               <div class="item-price">
-                <span class="original-price" v-if="item.origin_price !== item.price">
-                  NT$ {{ item.origin_price.toLocaleString() }}
+                <span class="original-price" v-if="item.origin_price && item.origin_price !== item.price">
+                  NT$ {{ (item.origin_price || 0).toLocaleString() }}
                 </span>
-                <span class="current-price">NT$ {{ item.price.toLocaleString() }}</span>
+                <span class="current-price">NT$ {{ (item.price || 0).toLocaleString() }}</span>
               </div>
             </div>
 
@@ -51,7 +51,7 @@
               </div>
 
               <div class="item-total">
-                小計：NT$ {{ (item.price * item.quantity).toLocaleString() }}
+                小計：NT$ {{ ((item.price || 0) * (item.quantity || 1)).toLocaleString() }}
               </div>
 
               <button @click="removeFromCart(item.id)" class="remove-btn">
@@ -72,19 +72,19 @@
 
           <div class="summary-row">
             <span>商品總計</span>
-            <span>NT$ {{ cartTotal.toLocaleString() }}</span>
+            <span>NT$ {{ (cartTotal || 0).toLocaleString() }}</span>
           </div>
 
           <div class="summary-row">
             <span>運費</span>
-            <span>{{ shippingFee === 0 ? '免運' : `NT$ ${shippingFee.toLocaleString()}` }}</span>
+            <span>{{ shippingFee === 0 ? '免運' : `NT$ ${(shippingFee || 0).toLocaleString()}` }}</span>
           </div>
 
           <div class="summary-divider"></div>
 
           <div class="summary-row total">
             <span>總計</span>
-            <span class="total-amount">NT$ {{ finalTotal.toLocaleString() }}</span>
+            <span class="total-amount">NT$ {{ (finalTotal || 0).toLocaleString() }}</span>
           </div>
 
           <button @click="checkout" class="checkout-btn">前往結帳</button>
