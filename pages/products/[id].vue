@@ -131,7 +131,7 @@ onMounted(async () => {
 
 // 根據 unit 篩選產品
 const unitProducts = computed(() => {
-  if (!allProducts.value || !Array.isArray(allProducts.value)) {
+  if (!allProducts.value || !Array.isArray(allProducts.value)) { // 從allProducts 讀取資料前先檢查是否為陣列，避免錯誤
     return []
   }
   return allProducts.value.filter(product => product.unit === unitName.value)
