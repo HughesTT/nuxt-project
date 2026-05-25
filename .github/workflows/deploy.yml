@@ -40,6 +40,7 @@ jobs:
       - name: Static HTML export with Nuxt
         run: npm run generate
       
+      # 將 npm run generate 產生的靜態檔案上傳
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
