@@ -6,7 +6,20 @@
   <BackToTop />
 </template>
 
-<script setup></script>
+<script setup>
+// GitHub Pages SPA 路由支援 - 處理 404 重定向
+if (import.meta.client) {
+  const redirect = sessionStorage.getItem('redirect')
+  if (redirect && redirect !== location.href) {
+    sessionStorage.removeItem('redirect')
+    const baseURL = '/nuxt-project/'
+    const targetPath = redirect.replace(location.origin + baseURL, '')
+    if (targetPath && targetPath !== '' && targetPath !== '/') {
+      navigateTo('/' + targetPath)
+    }
+  }
+}
+</script>
 
 <style lang="scss">
 body {
