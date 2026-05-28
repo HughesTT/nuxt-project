@@ -599,7 +599,7 @@ getFavorite() // 初始化追蹤清單狀態
     }
 
     .product-main .product-grid {
-      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
       gap: 1rem;
 
       .product-card {
