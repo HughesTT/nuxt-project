@@ -7,8 +7,8 @@
 <script setup>
 // SEO
 useSeoMeta({
-  title: 'Bolby Digital',
-  description: 'Bolby Digital 提供給您最新的產品資訊和優惠活動。'
+  title: 'TechShop',
+  description: 'TechShop 提供給您最新的產品資訊和優惠活動。'
 })
 </script>
 
